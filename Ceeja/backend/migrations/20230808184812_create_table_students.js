@@ -1,5 +1,3 @@
-const { increment } = require("../../../knowledge/versao-inicial/backend/config/db");
-
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }

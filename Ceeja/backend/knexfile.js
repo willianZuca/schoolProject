@@ -5,16 +5,16 @@
  */
 module.exports = {
 
-  development: {
+/*  development: {
     client: 'sqlite3',
     connection: {
       filename: './dev.sqlite3'
     }
-  },
+  },*/
 
   client: 'postgresql',
   connection: {
-    database: 'schoolProject',
+    database: 'schoolproject',
     user:     'postgres',
     password: '123456'
   },

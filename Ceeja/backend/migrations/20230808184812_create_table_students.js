@@ -1,14 +1,17 @@
+const { increment } = require("../../../knowledge/versao-inicial/backend/config/db");
+
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-  knex.schema.createTable('students', table => {
-    table.increments('matriculation').primary()
+  return knex.schema.createTable('students', table => {
+    table.increments('id').primary()
+    table.string('matriculation').notNull()
     table.string('name').notNull()
-    table.enum('shift',['matutinal', 'vespertine', 'nocturnal']).notNull()
-    table.enum('stage',['high school', 'elementary School']).notNull()
-
+    table.string('cpf').unique().notNull()
+    table.string('phoneNumber').notNull()
+    table.string('observation', 1000)
   })
 };
 
@@ -17,5 +20,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  knex.schema.dropTable('students')
+  return knex.schema.dropTable('students')
 };

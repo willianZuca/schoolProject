@@ -22,6 +22,19 @@ module.exports = app => {
             return res.status(400).send(msg)
         }
 
+        if(user.id) {
+            app.db('students')
+                .update(user)
+                .where({id: user.id})
+                .then(_ => res.status(204).send())
+                .catch(err => res.status(500).send(err))
+        } else {
+            app.db('students')
+                .insert(user)
+                .then(_ => res.status(204).send())
+                .catch(err => res.status(500).send(err))
+        }
+
         res.send('user save')
     }
 

@@ -12,36 +12,17 @@ module.exports = {
     }
   },
 
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
+  client: 'postgresql',
+  connection: {
+    database: 'schoolProject',
+    user:     'postgres',
+    password: '123456'
   },
-
-  production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
+  pool: {
+    min: 2,
+    max: 10
+  },
+  migrations: {
+    tableName: 'knex_migrations'
   }
-
 };

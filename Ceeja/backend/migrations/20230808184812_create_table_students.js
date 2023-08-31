@@ -1,3 +1,4 @@
+const { table } = require("../config/db");
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
@@ -9,7 +10,7 @@ exports.up = function(knex) {
     table.string('name').notNull()
     table.string('cpf').unique().notNull()
     table.string('phoneNumber').notNull()
-    table.string('observation', 1000)
+    table.string('observation', 1000).defaultTo("ND")
   })
 };
 

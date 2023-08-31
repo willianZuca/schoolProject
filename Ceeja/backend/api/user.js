@@ -6,12 +6,10 @@ module.exports = app => {
         if(req.params.id) user.id = req.params.id
 
         try {
+            existsOrError(user.matriculation, 'Matrícula não informada!')
             existsOrError(user.name, 'Nome não informado!')
             existsOrError(user.cpf, 'CPF não informado!')
             existsOrError(user.phoneNumber, 'Número de telefone não informado!')
-            existsOrError(user.shift, 'Período não informado!')
-            existsOrError(user.stage, 'Turno não informado!')
-            existsOrError(user.educationalCenter, 'Polo não informado!')
 
             const userFromDB = await app.db('students')
                 .where({cpf: user.cpf}).first()
